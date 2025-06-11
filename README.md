@@ -49,6 +49,7 @@ export default tseslint.config({
     // Enable its recommended typescript rules
     ...reactX.configs['recommended-typescript'].rules,
     ...reactDom.configs.recommended.rules,
+    //esoo
   },
 })
 ```
