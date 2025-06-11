@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
+import path from 'path';
 import { connectDB } from './database/db';
 
 const app = express();
@@ -12,6 +13,9 @@ app.use(cors({
 }));
 
 app.use(express.json()); // Middleware para parsear JSON
+
+// Sirve los archivos estáticos del frontend (Vite build)
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Ruta: Consultar todos los registros
 app.get('/api/estacionamientos', async (req: Request, res: Response) => {
@@ -49,6 +53,11 @@ app.delete('/api/estacionamientos/:id', async (req: Request, res: Response) => {
   const db = await connectDB();
   await db.execute('DELETE FROM estacionamientos WHERE id = ?', [id]);
   res.sendStatus(200);
+});
+
+// Para cualquier ruta que no sea API, devuelve el index.html del frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 // Iniciar el servidor
