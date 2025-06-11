@@ -4,6 +4,7 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
+    
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,5 +12,5 @@
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
-  
+
 }
