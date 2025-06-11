@@ -5,14 +5,15 @@
   "type": "commonjs",
   "scripts": {
     "build": "vite build",
-    "start": "vite preview --port 3000 --host"
+    "start": "serve -s dist -l 3000"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "mysql2": "^3.14.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.8",
