@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY tsconfig*.json ./
+COPY .env ./
 COPY index.html ./
 COPY src ./src
 

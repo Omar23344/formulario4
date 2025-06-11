@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react'; // Agrega esta línea si usas React <17
+import { useEffect, useState } from 'react';
 import ActivityForm from './components/ActivityForm';
 
 type Registro = {
@@ -13,7 +14,7 @@ const App = () => {
 
   // Cargar registros al iniciar y cuando se guarde uno nuevo
   const cargarRegistros = () => {
-    fetch('http://localhost:3000/api/estacionamientos')
+    fetch(`${import.meta.env.VITE_API_URL}/api/estacionamientos`)
       .then((res) => res.json())
       .then((data) => setRegistros(data));
   };
@@ -24,7 +25,7 @@ const App = () => {
 
   // Eliminar registro
   const eliminarRegistro = async (id: number) => {
-    await fetch(`http://localhost:3000/api/estacionamientos/${id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/estacionamientos/${id}`, {
       method: 'DELETE',
     });
     setRegistros(registros.filter((r) => r.id !== id));

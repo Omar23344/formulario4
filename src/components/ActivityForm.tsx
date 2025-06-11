@@ -9,7 +9,7 @@ const ActivityForm: React.FC<Props> = ({ onRegistroGuardado }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch('http://localhost:3000/api/estacionamientos', {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/estacionamientos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
