@@ -5,14 +5,15 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "Node16",
-    "moduleResolution": "node16",
-    "jsx": "react-jsx",
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist"
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
