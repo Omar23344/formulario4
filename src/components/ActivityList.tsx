@@ -104,3 +104,5 @@ export function ActivityList({ activities, dispatch }: ActivityListProps) {
     </div>
   );
 }
+
+export default ActivityList;
