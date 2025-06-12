@@ -11,7 +11,7 @@ COPY tailwind.config.js ./
 COPY index.html ./
 COPY public ./public
 COPY src ./src
-COPY config/vite.config.ts ./config/vite.config.ts
+COPY vite.config.ts ./
 
 # Fuerza la instalación de devDependencies
 ENV NODE_ENV=development
