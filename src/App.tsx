@@ -1,8 +1,7 @@
-import React from 'react'; // Agrega esta línea si usas React <17
 import { useEffect, useState } from 'react';
 import ActivityForm from './components/ActivityForm';
 import './styles.css';
-
+// A
 type Registro = {
   id: number;
   placa: string;
