@@ -6,7 +6,6 @@ WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
 COPY tsconfig*.json ./
-COPY .env ./
 COPY postcss.config.cjs ./
 COPY tailwind.config.js ./
 COPY index.html ./

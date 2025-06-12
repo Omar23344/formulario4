@@ -12,10 +12,11 @@ type Registro = {
 
 const App = () => {
   const [registros, setRegistros] = useState<Registro[]>([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   // Cargar registros al iniciar y cuando se guarde uno nuevo
   const cargarRegistros = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/estacionamientos`)
+    fetch(`${apiUrl}/api/estacionamientos`)
       .then((res) => res.json())
       .then((data) => setRegistros(data));
   };
@@ -26,7 +27,7 @@ const App = () => {
 
   // Eliminar registro
   const eliminarRegistro = async (id: number) => {
-    await fetch(`${import.meta.env.VITE_API_URL}/api/estacionamientos/${id}`, {
+    await fetch(`${apiUrl}/api/estacionamientos/${id}`, {
       method: 'DELETE',
     });
     setRegistros(registros.filter((r) => r.id !== id));
@@ -83,5 +84,15 @@ const App = () => {
     </div>
   );
 };
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
+function guardarRegistro(data: any) {
+  return fetch(`${apiUrl}/api/estacionamientos`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+}
 
 export default App;
