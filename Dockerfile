@@ -5,6 +5,7 @@ WORKDIR /app
 # Copia los archivos de dependencias y configuración
 COPY package.json ./
 COPY package-lock.json ./
+COPY .env ./
 COPY tsconfig*.json ./
 COPY postcss.config.cjs ./
 COPY tailwind.config.js ./
